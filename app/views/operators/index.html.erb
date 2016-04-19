@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista Operatori</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cognome</th>
+      <th>Foto</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @operators.each do |operator| %>
+      <tr>
+        <td><%= operator.name %></td>
+        <td><%= operator.surname %></td>
+        <td><%= image_tag(machine.picture_url) if operator.picture.exists? %></td>
+        <td><%= link_to 'Mostra', operator %></td>
+        <td><%= link_to 'Modifica', edit_operator_path(operator) %></td>
+        <td><%= link_to 'Elimina', operator, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Inserisci Operatore', new_operator_path %>
