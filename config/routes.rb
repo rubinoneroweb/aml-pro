@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :customers
+  resources :tools
   resources :operators
   resources :machines
   # The priority is based upon order of creation: first created -> highest priority.
