@@ -2,12 +2,24 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :picture %>
+    <div class="row">
+      <div class="small-6 columns">
+        <%= f.input :name, :label=>"Nome/Ragione sociale" %>
+      </div>
+      <div class="small-6 columns">
+        <%= f.input :description, :label=> "Descrizione" %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="small-12 columns">
+        <%= f.label "Immagine" %>
+      <%= f.file_field :picture, :label=>"Immagine" %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-actions row">
+  
+    <%= f.button :submit, "Salva" %>
   </div>
 <% end %>

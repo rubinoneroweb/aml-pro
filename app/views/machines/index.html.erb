@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<div class="row">
 <h1>Lista macchinari</h1>
-
+</div>
+<div class="row">
 <table>
   <thead>
     <tr>
@@ -20,12 +21,13 @@
         <td><%= image_tag(machine.picture_url) if machine.picture.exists? %></td>
         <td><%= link_to 'Mostra', machine %></td>
         <td><%= link_to 'Modifica', edit_machine_path(machine) %></td>
-        <td><%= link_to 'Elimina', machine, method: :delete, data: { confirm: 'Sei sicuro??' } %></td>
+        <td><%= link_to 'Elimina', machine, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
-
-<%= link_to 'Inserisci Macchinario', new_machine_path %>
+<div class="row">
+<%= link_to 'Inserisci Macchinario', new_machine_path, :class=>"button" %>
+</div>
