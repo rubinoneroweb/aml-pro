@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nome:</strong>
   <%= @machine.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Descrizione:</strong>
   <%= @machine.description %>
 </p>
 
 <p>
-  <strong>Picture:</strong>
+  <strong>Immagine:</strong>
   <%= @machine.picture %>
 </p>
 
-<%= link_to 'Edit', edit_machine_path(@machine) %> |
-<%= link_to 'Back', machines_path %>
+<%= link_to 'Modifica', edit_machine_path(@machine), :class=>"button" %> |
+<%= link_to 'Torna Indietro', machines_path, :class=>"button" %>
