@@ -1,6 +1,7 @@
-<h1>Editing Metalwork</h1>
-
+<div class="row"><h1>Modifica Processo</h1></div>
 <%= render 'form' %>
 
-<%= link_to 'Show', @metalwork %> |
-<%= link_to 'Back', metalworks_path %>
+<div class="row">
+<%= link_to 'Mostra processo', @metalwork, :class=>"button" %> |
+<%= link_to 'Torna a elenco processi', metalworks_path, :class=>"button" %>
+</div>

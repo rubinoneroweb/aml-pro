@@ -28,7 +28,7 @@ class MetalworksController < ApplicationController
 
     respond_to do |format|
       if @metalwork.save
-        format.html { redirect_to @metalwork, notice: 'Metalwork was successfully created.' }
+        format.html { redirect_to metalworks_url, notice: 'Dati processo inseriti.' }
         format.json { render :show, status: :created, location: @metalwork }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class MetalworksController < ApplicationController
   def update
     respond_to do |format|
       if @metalwork.update(metalwork_params)
-        format.html { redirect_to @metalwork, notice: 'Metalwork was successfully updated.' }
+        format.html { redirect_to metalworks_url, notice: 'Dati processo salvati.' }
         format.json { render :show, status: :ok, location: @metalwork }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class MetalworksController < ApplicationController
   def destroy
     @metalwork.destroy
     respond_to do |format|
-      format.html { redirect_to metalworks_url, notice: 'Metalwork was successfully destroyed.' }
+      format.html { redirect_to metalworks_url, notice: 'Processo eliminato.' }
       format.json { head :no_content }
     end
   end

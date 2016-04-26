@@ -28,7 +28,7 @@ class OperatorsController < ApplicationController
 
     respond_to do |format|
       if @operator.save
-        format.html { redirect_to @operator, notice: 'Operator was successfully created.' }
+        format.html { redirect_to operators_path, notice: 'Dati operatore inseriti.' }
         format.json { render :show, status: :created, location: @operator }
       else
         format.html { render :new }
@@ -36,13 +36,15 @@ class OperatorsController < ApplicationController
       end
     end
   end
+  
+
 
   # PATCH/PUT /operators/1
   # PATCH/PUT /operators/1.json
   def update
     respond_to do |format|
       if @operator.update(operator_params)
-        format.html { redirect_to @operator, notice: 'Operator was successfully updated.' }
+        format.html { redirect_to operators_path, notice: 'Dati operatore salvati.' }
         format.json { render :show, status: :ok, location: @operator }
       else
         format.html { render :edit }
@@ -56,7 +58,7 @@ class OperatorsController < ApplicationController
   def destroy
     @operator.destroy
     respond_to do |format|
-      format.html { redirect_to operators_url, notice: 'Operator was successfully destroyed.' }
+      format.html { redirect_to operators_url, notice: 'Operatore cancellato.' }
       format.json { head :no_content }
     end
   end
