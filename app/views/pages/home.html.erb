@@ -1,0 +1,46 @@
+<div class="row"><h1>Pannello di controllo</h1></div>
+<hr>
+<div class="row">
+    <div class="small-12 columns">
+        <h2>Anagrafiche</h2>
+    </div>
+</div>
+<div class="row">
+    
+    <div class="medium-6 columns">
+        <%= link_to "Anagrafica Operatori", operators_path, :class=>"button expanded"%>
+    </div>
+    <div class="medium-6 columns">
+        <%= link_to "Anagrafica Clienti", customers_path, :class=>"button expanded"%>
+    </div>
+</div>
+
+<hr>
+<div class="row">
+    <div class="small-12 columns">
+        <h2>Macchinari e Strumenti</h2>
+    </div>
+</div>
+<div class="row">
+    
+    
+    <div class="medium-6 columns">
+        <%= link_to "Elenco Macchinari", machines_path, :class=>"button expanded"%>
+    </div>
+    <div class="medium-6 columns">
+        <%= link_to "Elenco Strumenti", tools_path, :class=>"button expanded"%>
+    </div>
+</div>
+
+<hr>
+<div class="row">
+    <div class="small-12 columns">
+        <h2>Articoli e Lavorazioni</h2>
+    </div>
+    <div class="medium-6 columns">
+        <%= link_to "Elenco Articoli", articles_path, :class=>"button expanded"%>
+    </div>
+    <div class="medium-6 columns">
+        <%= link_to "Elenco Lavorazioni", metalworks_path, :class=>"button expanded"%>
+    </div>
+</div>

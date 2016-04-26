@@ -1,4 +1,4 @@
-class Tool < ActiveRecord::Base
+class Metalwork < ActiveRecord::Base
     mount_uploader :picture, PictureUploader
     
     belongs_to :machine

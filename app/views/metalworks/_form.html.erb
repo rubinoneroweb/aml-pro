@@ -1,0 +1,15 @@
+<%= simple_form_for(@metalwork) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, :label=>"Codice" %>
+    <%= f.input :description, :label=>"Descrizione" %>
+    <%= f.label "Immagine" %>
+    <%= f.file_field :picture %>
+    <%= f.association :machine %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,14 +1,15 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Tools</h1>
-
+<div class="row">
+<h1>Lista Strumenti</h1>
+</div>
+<div class="row">
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Picture</th>
-      <th>Machine</th>
+      <th>Nome</th>
+      <th>Descrizione</th>
+      <th>Immagine</th>
+      <th>Macchinario</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,15 +20,17 @@
         <td><%= tool.name %></td>
         <td><%= tool.description %></td>
         <td><%= tool.picture %></td>
-        <td><%= tool.machine_id %></td>
-        <td><%= link_to 'Show', tool %></td>
-        <td><%= link_to 'Edit', edit_tool_path(tool) %></td>
-        <td><%= link_to 'Destroy', tool, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= tool.machine.name %></td>
+        <td><%= link_to 'Dettagli', tool, :class=>"button" %></td>
+        <td><%= link_to 'Modifica', edit_tool_path(tool), :class=>"button warning" %></td>
+        <td><%= link_to 'Elimina', tool, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"button alert" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
-<br>
+<div class="row">
 
-<%= link_to 'New Tool', new_tool_path %>
+<%= link_to 'Aggiungi nuovo strumento', new_tool_path, :class=>"button"%>
+</div>

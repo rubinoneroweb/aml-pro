@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Metalworks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Picture</th>
+      <th>Machine</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @metalworks.each do |metalwork| %>
+      <tr>
+        <td><%= metalwork.name %></td>
+        <td><%= metalwork.description %></td>
+        <td><%= metalwork.picture %></td>
+        <td><%= metalwork.machine_id %></td>
+        <td><%= link_to 'Show', metalwork %></td>
+        <td><%= link_to 'Edit', edit_metalwork_path(metalwork) %></td>
+        <td><%= link_to 'Destroy', metalwork, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Metalwork', new_metalwork_path %>

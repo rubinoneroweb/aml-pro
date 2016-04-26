@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @metalwork.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @metalwork.description %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @metalwork.picture %>
+</p>
+
+<p>
+  <strong>Machine:</strong>
+  <%= @metalwork.machine_id %>
+</p>
+
+<%= link_to 'Edit', edit_metalwork_path(@metalwork) %> |
+<%= link_to 'Back', metalworks_path %>
