@@ -19,7 +19,7 @@
         <td><%= machine.name %></td>
         <td><%= machine.description %></td>
         <td><%= image_tag(machine.picture_url) if machine.picture.present? %></td>
-        <td><%= link_to 'Mostra', machine, :class=>"button" %></td>
+        <td><%= link_to 'Dettagli', machine, :class=>"button" %></td>
         <td><%= link_to 'Modifica', edit_machine_path(machine), :class=>"button warning" %></td>
         <td><%= link_to 'Elimina', machine, method: :delete, data: { confirm: 'Sei sicuro?' }, :class=>"button alert" %></td>
       </tr>

@@ -20,9 +20,9 @@
           <td><%= article.description %></td>
           <td><%= article.picture %></td>
           <td><%= article.drawing %></td>
-          <td><%= link_to 'Dettagli', article %></td>
-          <td><%= link_to 'Modifica', edit_article_path(article) %></td>
-          <td><%= link_to 'Elimina', article, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
+          <td><%= link_to 'Dettagli', article, :class=>"button" %></td>
+          <td><%= link_to 'Modifica', edit_article_path(article), :class=>"button warning" %></td>
+          <td><%= link_to 'Elimina', article, method: :delete, data: { confirm: 'Sei sicuro?' }, :class=>"button alert" %></td>
         </tr>
       <% end %>
     </tbody>

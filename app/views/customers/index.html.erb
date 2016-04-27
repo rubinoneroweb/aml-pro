@@ -20,9 +20,9 @@
         <td><%= customer.name %></td>
         <td><%= customer.description %></td>
         <td><%= customer.picture %></td>
-        <td><%= link_to 'Dettagli', customer %></td>
-        <td><%= link_to 'Modifica', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Elimina', customer, method: :delete, data: { confirm: 'Sei sicuro?' } %></td>
+        <td><%= link_to 'Dettagli', customer, :class=>"button" %></td>
+        <td><%= link_to 'Modifica', edit_customer_path(customer), :class=>"button warning" %></td>
+        <td><%= link_to 'Elimina', customer, method: :delete, data: { confirm: 'Sei sicuro?' }, :class=>"button alert" %></td>
       </tr>
     <% end %>
   </tbody>
