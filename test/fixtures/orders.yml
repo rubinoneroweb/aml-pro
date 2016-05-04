@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_ric: 2016-04-28 06:23:23
+  date_cons: 2016-04-28 06:23:23
+  note: MyText
+  article_id: 1
+  customer_id: 1
+  price: 1.5
+
+two:
+  date_ric: 2016-04-28 06:23:23
+  date_cons: 2016-04-28 06:23:23
+  note: MyText
+  article_id: 1
+  customer_id: 1
+  price: 1.5

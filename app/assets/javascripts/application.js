@@ -13,7 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+// require foundation-datetimepicker
 //= require turbolinks
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(function(){
+	$('#order_date_ric').fdatetimepicker({
+		
+		language: 'it',
+		format: 'dd-mm-yyyy',
+		disableDblClickSelection: true
+	});
+});

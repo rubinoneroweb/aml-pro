@@ -15,3 +15,8 @@
  *= require foundation_and_overrides
 
  */
+
+.switch
+{
+    color: #000000 !important;
+}

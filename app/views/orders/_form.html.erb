@@ -1,0 +1,34 @@
+<%= simple_form_for(@order) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="medium-6 columns">
+        <%= f.association :customer, :label=>"Cliente" %>
+      </div>
+      <div class="medium-6 columns">
+        <%= f.association :article, label_method: :code, :label=>"Articolo" %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="medium-6 columns">
+        <%= f.input :date_ric, as: :date, html5: true, :label=>"Data ricezione ordine" %>
+        <hr>
+        <%= f.input :date_cons, :label=>"Data consegna ordine"%>
+      </div>
+      <div class="medium-6 columns">
+        <%= f.input :note %>
+        <hr>
+        <%= f.input :price, :label=>"Prezzo stabilito" %>
+      </div>
+    </div>
+    
+    
+  </div>
+
+  <div class="form-actions">
+    <div class="row">
+    <%= f.button :submit, "Inserisci Commessa", :class=>"button"  %>
+  </div>
+<% end %>
