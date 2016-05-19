@@ -1,0 +1,23 @@
+
+<%= simple_form_for(@task) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="small-6 columns"
+      <%= f.association :operator, :label=>"Operatore" %>
+      </div>
+      <%= f.association :metalwork, label_method: :description, :label => "Processo" %>
+    </div>
+    <div class="row">
+      <%= f.association :order, label_method: :id, :label=>"Commessa" %>
+      <%= f.input :quantity, :label=>"Quantità" %>
+      <%= f.input :speed, :label=> "Velocità" %>
+      <%= f.input :done %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -35,7 +35,7 @@ gem 'foundation-rails'
 gem 'simple_form'
 
 # Foundation datetime picker
-gem 'foundation-datetimepicker-rails'#, github: 'aliibrahim/foundation-datetimepicker-rails'
+gem 'foundation-datetimepicker-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

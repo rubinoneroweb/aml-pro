@@ -1,16 +1,17 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Orders</h1>
-
+<div class="row">
+<h1>Elenco Commesse</h1>
+</div>
+<div class="row">
 <table>
   <thead>
     <tr>
-      <th>Date ric</th>
-      <th>Date cons</th>
+      <th>Data di ricezione</th>
+      <th>Data di consegna</th>
       <th>Note</th>
-      <th>Article</th>
-      <th>Customer</th>
-      <th>Price</th>
+      <th>Articolo</th>
+      <th>Cliente</th>
+      <th>Prezzo stabilito</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,20 +19,21 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.date_ric %></td>
-        <td><%= order.date_cons %></td>
+        <td><%= order.date_ric.strftime("%d/%m/%Y") %></td>
+        <td><%= order.date_cons.strftime("%d/%m/%Y") %></td>
         <td><%= order.note %></td>
-        <td><%= order.article_id %></td>
-        <td><%= order.customer_id %></td>
+        <td><%= order.article.code %></td>
+        <td><%= order.customer.name %></td>
         <td><%= order.price %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Dettagli', order, :class=>"button"%></td>
+        <td><%= link_to 'Modifica', edit_order_path(order), :class=>"button warning" %></td>
+        <td><%= link_to 'Elimina', order, method: :delete, data: { confirm: 'Sei sicuro di voler eliminare questa commessa?' }, :class=>"button alert" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Order', new_order_path %>
+</div>
+<div class="row">
+<%= link_to 'Nuova commessa', new_order_path, :class=>"button" %>
+</div>

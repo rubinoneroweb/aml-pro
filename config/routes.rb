@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :jobs
+  resources :tasks
   resources :orders
   resources :metalworks
   get 'pages/home'

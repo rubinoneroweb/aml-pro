@@ -13,9 +13,9 @@
     
     <div class="row">
       <div class="medium-6 columns">
-        <%= f.input :date_ric, as: :date, html5: true, :label=>"Data ricezione ordine" %>
+        <%= f.input :date_ric, as: :date, html5: true,:data=>{:date_format=>"dd/mm/yyyy"}, :label=>"Data ricezione ordine", :class=>"datepicker"%>
         <hr>
-        <%= f.input :date_cons, :label=>"Data consegna ordine"%>
+        <%= f.input :date_cons, as: :date, html5: true, :label=>"Data consegna ordine", :class=>"datepicker"%>
       </div>
       <div class="medium-6 columns">
         <%= f.input :note %>
@@ -23,6 +23,8 @@
         <%= f.input :price, :label=>"Prezzo stabilito" %>
       </div>
     </div>
+    
+    
     
     
   </div>
