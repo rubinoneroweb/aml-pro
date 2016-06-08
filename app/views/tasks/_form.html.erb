@@ -4,16 +4,29 @@
 
   <div class="form-inputs">
     <div class="row">
-      <div class="small-6 columns"
-      <%= f.association :operator, :label=>"Operatore" %>
+      <div class="small-6 columns">
+        <%= f.association :operator, :label=>"Operatore" %>
       </div>
-      <%= f.association :metalwork, label_method: :description, :label => "Processo" %>
+      <div class="small-6 columns">
+        <%= f.association :metalwork, label_method: :description, :label => "Processo" %>
+      </div>
     </div>
     <div class="row">
-      <%= f.association :order, label_method: :id, :label=>"Commessa" %>
-      <%= f.input :quantity, :label=>"Quantità" %>
-      <%= f.input :speed, :label=> "Velocità" %>
-      <%= f.input :done %>
+      <div class="small-3 columns">
+        <%= f.association :order, label_method: :label_print, :label=>"Commessa" %>
+      </div>
+      <div class="small-3 columns">
+        <%= f.input :quantity, :label=>"Quantità" %>
+      </div>
+      <div class="small-2 columns">
+        <%= f.input :speed, :label=> "Velocità (pz./min)" %>
+      </div>
+      <div class="small-2 columns">
+        <%= f.input :done, :label=>"Completato" %>
+      </div>
+      <div class="small-2 columns">
+        <%= f.input :priority, :label=>"Priorità" %>
+      </div>
     </div>
   </div>
 

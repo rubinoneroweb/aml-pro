@@ -21,12 +21,3 @@
  
 $(function(){ $(document).foundation(); });
 
-$(function(){
-	$('#order_date_cons, #order_date_ric').fdatetimepicker({
-		
-		language: 'it',
-		format: 'dd/mm/yyyy',
-		disableDblClickSelection: true,
-		pickTime: false
-	});
-});

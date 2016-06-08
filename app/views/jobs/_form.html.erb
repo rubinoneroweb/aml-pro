@@ -1,15 +1,17 @@
 <%= simple_form_for(@job) do |f| %>
   <%= f.error_notification %>
-
+  
   <div class="form-inputs">
-    <%= f.input :operator_id %>
-    <%= f.input :started_at %>
-    <%= f.input :completed_at %>
-    <%= f.input :metalwork_id %>
-    <%= f.input :order_id %>
+    <%= f.association :operator, label_method: :full_name %>
+    <%= f.input :started_at, as: :date, html5: true,:data=>{:date_format=>"dd/mm/yyyy"}, :label=>"Data inizio lavorazione", :class=>"datepicker" %>
+    <%= f.input :completed_at,  as: :date, html5: true,:data=>{:date_format=>"dd/mm/yyyy"}, :label=>"Data fine lavorazione", :class=>"datepicker"  %>
+    <%= f.association :metalwork %>
+    <%= f.association :order, label_method: :label_print, :label=>"Commessa" %>
   </div>
-
+  <div>
+    
+  </div>
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, "Salva Lavorazione" %>
   </div>
 <% end %>
