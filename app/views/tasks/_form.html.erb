@@ -11,20 +11,21 @@
         <%= f.association :metalwork, label_method: :description, :label => "Processo" %>
       </div>
     </div>
-    <div class="row">
-      <div class="small-3 columns">
+    <div class="small-3 columns">
         <%= f.association :order, label_method: :label_print, :label=>"Commessa" %>
       </div>
+    <div class="row">
+      
       <div class="small-3 columns">
         <%= f.input :quantity, :label=>"Quantità" %>
       </div>
-      <div class="small-2 columns">
+      <div class="small-3 columns">
         <%= f.input :speed, :label=> "Velocità (pz./min)" %>
       </div>
-      <div class="small-2 columns">
+      <div class="small-3 columns">
         <%= f.input :done, :label=>"Completato" %>
       </div>
-      <div class="small-2 columns">
+      <div class="small-3 columns">
         <%= f.input :priority, :label=>"Priorità" %>
       </div>
     </div>

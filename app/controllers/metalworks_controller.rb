@@ -57,6 +57,7 @@ class MetalworksController < ApplicationController
     @metalwork.destroy
     respond_to do |format|
       format.html { redirect_to metalworks_url, notice: 'Processo eliminato.' }
+      
       format.json { head :no_content }
     end
   end

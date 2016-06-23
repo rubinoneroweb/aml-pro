@@ -15,10 +15,12 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+    @task.order_id = params[:order_id]
   end
 
   # GET /tasks/1/edit
   def edit
+    
   end
 
   # POST /tasks
@@ -28,9 +30,10 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to tasks_url, notice: 'Task creato con successo.' }
+        format.html { redirect_to @task.order, notice: 'Task creato con successo.' }
         format.json { render :show, status: :created, location: @task }
       else
+
         format.html { render :new }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
@@ -38,6 +41,7 @@ class TasksController < ApplicationController
   end
 
   # PATCH/PUT /tasks/1
+
   # PATCH/PUT /tasks/1.json
   def update
     respond_to do |format|
