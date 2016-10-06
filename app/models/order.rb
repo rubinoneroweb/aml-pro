@@ -26,4 +26,18 @@ class Order < ActiveRecord::Base
     def label_start_stop
         self.customer.name + " - ricezione: " + self.date_ric.strftime("%d/%m/%Y") + " - consegna: " + self.date_cons.strftime("%d/%m/%Y")
     end
+    
+    def metalworks_applied
+        self.tasks.map{|task| task.metalwork.id}.uniq
+    end
+    
+    def pieces_remaining_for(work)
+        
+         self.total_pieces - self.tasks.where(metalwork: work).map{|task| task.quantity}.sum
+        
+        
+    end
+    
+    
+    
 end

@@ -11,7 +11,8 @@
       <th>Note</th>
       <th>Articolo</th>
       <th>Cliente</th>
-      <th>Prezzo stabilito</th>
+      <th>Prezzo tot.</th>
+      <th>Pezzi tot.</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,6 +26,7 @@
         <td><%= order.article.code %></td>
         <td><%= order.customer.name %></td>
         <td><%= order.price %></td>
+        <td><%= order.total_pieces %></td>
         <td><%= link_to 'Dettagli', order, :class=>"button"%></td>
         <td><%= link_to 'Modifica', edit_order_path(order), :class=>"button warning" %></td>
         <td><%= link_to 'Elimina', order, method: :delete, data: { confirm: 'Sei sicuro di voler eliminare questa commessa?' }, :class=>"button alert" %></td>

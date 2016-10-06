@@ -22,8 +22,28 @@
     <strong><%= @order.note %></strong>
   </div>
   <div class="small-6 columns">
-    Prezzo:<br>
+    Prezzo totale:<br>
     <strong>€ <%= @order.price %></strong>
+  </div>
+  <div class="small-6 columns">
+    Pezzi totali:<br>
+    <strong><%= @order.total_pieces %></strong>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns">
+    <ul>
+      <% @order.metalworks_applied.each do |work| %>
+      
+      <li>
+        Ci sono ancora <%= @order.pieces_remaining_for(work) %> pezzi da fare per il processo <%= Metalwork.find(work).description %>.
+      </li>
+      
+      <% end %>
+      
+    </ul>
+    
+    
   </div>
 </div>
 

@@ -17,10 +17,14 @@
         <hr>
         <%= f.input :date_cons, as: :date, html5: true, :label=>"Data consegna ordine", :class=>"datepicker"%>
       </div>
-      <div class="medium-6 columns">
+      <div class="medium-3 columns">
         <%= f.input :note %>
         <hr>
-        <%= f.input :price, :label=>"Prezzo stabilito" %>
+        <%= f.input :price, :label=>"Prezzo totale stabilito" %>
+      </div>
+      <div class="medium-3 columns">
+       
+        <%= f.input :total_pieces, :label=>"Num. totale pezzi" %>
       </div>
     </div>
     

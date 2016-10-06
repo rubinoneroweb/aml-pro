@@ -9,4 +9,7 @@ class Operator < ActiveRecord::Base
           self.name + " " + self.surname
      end
      
+     def capitalize_name
+          self.name.upcase + " " + self.surname.upcase
+     end
 end
