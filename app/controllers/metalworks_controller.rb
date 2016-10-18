@@ -70,6 +70,6 @@ class MetalworksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def metalwork_params
-      params.require(:metalwork).permit(:name, :description, :picture, :machine_id)
+      params.require(:metalwork).permit(:name, :description, :picture, :machine_id, :tool_id, :note)
     end
 end

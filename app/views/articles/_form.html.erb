@@ -9,6 +9,9 @@
       </div>
       <div class="small-6 columns">
         <%= f.input :description, :label=>"Descrizione" %>
+        <hr>
+        <%= f.association :customer, :label =>"Cliente", :label_method=>:name, :prompt=>"Scegli il cliente...", :required=>true %>
+
       </div>
     </div>
     <div class="row">

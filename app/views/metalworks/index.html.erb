@@ -11,6 +11,7 @@
       <th>Descrizione</th>
       <th>Immagine</th>
       <th>Macchinario</th>
+      <th>Strumento</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,6 +23,7 @@
         <td><%= metalwork.description %></td>
         <td><%= metalwork.picture %></td>
         <td><%= metalwork.machine.name %></td>
+        <td><%= metalwork.tool.name if metalwork.tool.present? %></td>
         <td><%= link_to 'Dettagli', metalwork, :class=>"button" %></td>
         <td><%= link_to 'Modifica', edit_metalwork_path(metalwork), :class=>"warning button" %></td>
         <td><%= link_to 'Elimina', metalwork, method: :delete, data: { confirm: 'Sei sicuro?' }, :class=>"alert button" %></td>
@@ -29,6 +31,7 @@
     <% end %>
   </tbody>
 </table>
+
 
 </div>
 

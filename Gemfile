@@ -37,6 +37,9 @@ gem 'simple_form'
 # Foundation datetime picker
 gem 'foundation-datetimepicker-rails'
 
+# Font Awesome
+gem "font-awesome-rails"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -7,7 +7,7 @@
         <%= f.association :customer, :label=>"Cliente" %>
       </div>
       <div class="medium-6 columns">
-        <%= f.association :article, label_method: :code, :label=>"Articolo" %>
+        <%= f.association :article, label_method: :label_desc, :label=>"Articolo" %>
       </div>
     </div>
     
@@ -16,6 +16,8 @@
         <%= f.input :date_ric, as: :date, html5: true,:data=>{:date_format=>"dd/mm/yyyy"}, :label=>"Data ricezione ordine", :class=>"datepicker"%>
         <hr>
         <%= f.input :date_cons, as: :date, html5: true, :label=>"Data consegna ordine", :class=>"datepicker"%>
+         <hr>
+        <%= f.input :packaging, :label=>"Imballaggio" %>
       </div>
       <div class="medium-3 columns">
         <%= f.input :note %>

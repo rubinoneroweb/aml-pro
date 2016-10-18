@@ -6,12 +6,15 @@
       <div class="small-6 columns">
         <%= f.input :name, :label=>"Codice" %>
         <%= f.input :description, :label=>"Descrizione" %>
+        <%= f.input :note, :label=>"Note" %>
       </div>
     
       <div class="small-6 columns">
         <%= f.label "Immagine" %>
         <%= f.file_field :picture %>
         <%= f.association :machine, :label =>"Macchinario", :prompt=>"Scegli il Macchinario...", :required=>true %>
+        <hr>
+        <%= f.association :tool, :label =>"Strumento", :label_method=>:label_machine, :prompt=>"Scegli lo Strumento...", :required=>true %>
         </div>
       </div>
   </div>
