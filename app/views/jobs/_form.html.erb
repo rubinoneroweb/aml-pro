@@ -1,12 +1,37 @@
 <%= simple_form_for(@job) do |f| %>
   <%= f.error_notification %>
   
+  
+  <div class="row">
+    <h3> </h3>
+    <div class="small-6 columns">
+      <h2 id="startLabel">&nbsp;</span>
+          <%= f.input :started_at, as: :hidden, :html5=>true, :data=>{:date_format=>"dd/mm/yyyy"}, :label=>"Inizio" %>
+          <a href="#" class="button large round" id="buttonstart" onClick="startTime();">START</a>
+
+    </div>
+    
+    <div class="small-6 columns">
+       <h2 id="stopLabel">&nbsp;</span>
+        <%= f.input :completed_at,  as: :hidden, html5: true,:data=>{:date_format=>"dd/mm/yyyy"}, :label=>"Fine"  %>
+       <a href="#" class="button large round " id="buttonstop" onClick="stopTime();">STOP</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-6 columns">
+       <%= f.input :q_in, :label=>"Quantità iniziale", :value=>0 %>
+    </div>
+  
+    <div class="small-6 columns">
+       <%= f.input :q_fin, :label=>"Quantità finale" %>
+    </div>
   <div class="form-inputs">
-    <%= f.association :operator, label_method: :full_name %>
-    <%= f.input :started_at, as: :date, html5: true,:data=>{:date_format=>"dd/mm/yyyy"}, :label=>"Data inizio lavorazione" %>
-    <%= f.input :completed_at,  as: :date, html5: true,:data=>{:date_format=>"dd/mm/yyyy"}, :label=>"Data fine lavorazione"  %>
-    <%= f.association :metalwork %>
-    <%= f.association :order, label_method: :label_print, :label=>"Commessa" %>
+    
+    
+    
+    <%= f.association :operator, as: :hidden, label_method: :full_name %>
+    <%= f.association :metalwork, as: :hidden %>
+    <%= f.association :order, as: :hidden, label_method: :label_print, :label=>"Commessa" %>
   </div>
   <div>
     

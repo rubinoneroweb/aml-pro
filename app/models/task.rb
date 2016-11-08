@@ -9,6 +9,8 @@ class Task < ActiveRecord::Base
     
     belongs_to :metalwork
     
+    has_many :tasks
+    
    # validates :quantity, inclusion: { in: 1..(Order.find(self.order_id).pieces_remaining_for(self.metalwork.id)), message:"Numero di pezzi troppo alto"}
     
     def getOrder

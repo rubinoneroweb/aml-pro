@@ -11,13 +11,39 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
+// require jquery.turbolinks
 //= require jquery_ujs
 //= require foundation
-//= require foundation-datetimepicker
-//= require turbolinks
+
 //= require_tree .
+$(function(){ $(document).foundation()});
 
+// require turbolinks
 
+function pad(n) {
+    return (n < 10) ? ("0" + n) : n;
+}
  
-$(function(){ $(document).foundation(); });
 
+var stopTime;
+
+stopTime = function() {
+    var now = new Date($.now())
+  $('#job_completed_at').val(new Date($.now()));
+  $('#buttonstop').attr('disabled', true);
+  h = now.getHours(); // 0-24 format
+  m = now.getMinutes();
+  $('#stopLabel').text(h + " : " + pad(m));
+};
+
+
+startTime = function() {
+    var now = new Date($.now())
+  $('#job_started_at').val(now);
+  $('#buttonstart').attr('disabled', true);
+ // $('#buttonstop').attr('disabled', false);
+  h = now.getHours(); // 0-24 format
+  m = now.getMinutes();
+  $('#startLabel').text(h + " : " + pad(m));
+};

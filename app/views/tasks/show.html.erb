@@ -2,17 +2,17 @@
 
 <p>
   <strong>Operator:</strong>
-  <%= @task.operator_id %>
+  <%= @task.operator.name %>
 </p>
 
 <p>
   <strong>Process:</strong>
-  <%= @task.process_id %>
+  <%= @task.metalwork.description %>
 </p>
 
 <p>
   <strong>Order:</strong>
-  <%= @task.order_id %>
+  <%= @task.order.label_print %>
 </p>
 
 <p>
@@ -20,10 +20,6 @@
   <%= @task.quantity %>
 </p>
 
-<p>
-  <strong>Speed:</strong>
-  <%= @task.speed %>
-</p>
 
 <p>
   <strong>Done:</strong>

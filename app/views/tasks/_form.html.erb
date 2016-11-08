@@ -1,27 +1,31 @@
 
 <%= simple_form_for(@task) do |f| %>
   <%= f.error_notification %>
-
+   <div class="row">
+    <h4> Commessa: <%= @task.order.label_print %> - Articolo: <%=  @task.order.article.description %></h4>
+  </div>
   <div class="form-inputs">
     <div class="row">
+   
+        
       <div class="small-6 columns">
         <%= f.association :operator, :label=>"Operatore" %>
       </div>
       <div class="small-6 columns">
-        <%= f.association :metalwork, label_method: :description, :label => "Processo" %>
+         <%= f.association :metalwork, :collection=> @task.order.article.metalworks, label_method: :description, :label => "Processo" %>
       </div>
     </div>
-    <div class="small-3 columns">
-        <%= f.association :order, label_method: :label_print, :label=>"Commessa" %>
-      </div>
+   
     <div class="row">
+      
+      <div class="small-3 columns" style="display:none;">
+        <%= f.association :order, :label=>"Commessa" %>
+      </div>
       
       <div class="small-3 columns">
         <%= f.input :quantity, :label=>"Quantità" %>
       </div>
-      <div class="small-3 columns">
-        <%= f.input :speed, :label=> "Velocità (pz./min)" %>
-      </div>
+     
       <div class="small-3 columns">
         <%= f.input :done, :label=>"Completato" %>
       </div>
@@ -30,8 +34,10 @@
       </div>
     </div>
   </div>
-
-  <div class="form-actions">
+<div class="row">
+   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+</div>
+ 
 <% end %>

@@ -17,14 +17,14 @@
   <tbody>
     <% @jobs.each do |job| %>
       <tr>
-        <td><%= job.operator.full_name%></td>
+        <td><%= job.operator.full_name if job.operator.present? %></td>
         <td><%= job.started_at %></td>
         <td><%= job.completed_at %></td>
         <td><%= job.metalwork_id %></td>
-        <td><%= job.order.label_print %></td>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= job.order.label_print if job.order.present?%></td>
+        <td><%= link_to 'Dettagli', job %></td>
+        <td><%= link_to 'Modifica', edit_job_path(job) %></td>
+        <td><%= link_to 'Elimina', job, method: :delete, data: { confirm: 'Sei Sicuro?' } %></td>
       </tr>
     <% end %>
   </tbody>

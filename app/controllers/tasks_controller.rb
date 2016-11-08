@@ -20,7 +20,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-    
+    @task.order_id = params[:order_id]
   end
 
   # POST /tasks
@@ -46,7 +46,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to tasks_url, notice: 'Dati task modificati.' }
+        format.html { redirect_to @task.order, notice: 'Dati task modificati.' }
         format.json { render :show, status: :ok, location: @task }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to tasks_url, notice: 'Task eliminato con successo!' }
+      format.html { redirect_to @task.order, notice: 'Task eliminato con successo!' }
       format.json { head :no_content }
     end
   end

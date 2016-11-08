@@ -15,6 +15,7 @@ class JobsController < ApplicationController
   # GET /jobs/new
   def new
     @job = Job.new
+    @task = params[:task_id]
   end
 
   # GET /jobs/1/edit
@@ -69,6 +70,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:operator_id, :started_at, :completed_at, :metalwork_id, :order_id)
+      params.require(:job).permit(:operator_id, :started_at, :completed_at, :metalwork_id, :order_id, :q_in, :q_fin, :task_id)
     end
 end

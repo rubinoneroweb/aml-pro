@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ 
+ *= require font-awesome
  *= require foundation_and_overrides
 
  */
@@ -19,4 +21,15 @@
 .switch
 {
     color: #000000 !important;
+}
+
+.center_td
+{
+    text-align: center !important;
+}
+
+
+.pagination button, .pagination a
+{
+  display: inline !important;
 }

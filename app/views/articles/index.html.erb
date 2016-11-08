@@ -1,7 +1,43 @@
 <p id="notice"><%= notice %></p>
-<div class="row"><h1>Elenco Articoli</h1></div>
+<div class="row"><h1>Elenco Articoli</h1>
 
+<% if params[:customer].present? %>
+
+<h4>Elenco articoli per il cliente <%= @customer.name %></h4>
+<% end %>
+</div>
+
+  
 <div class="row">
+  <div class="small-3 columns">
+  <%= link_to 'Inserisci nuovo Articolo', new_article_path, :class=>"button" %>
+  </div>
+  <div class="small-9 columns">
+   
+
+<%= select_tag 'customer_id', options_from_collection_for_select(@customers, "id", "name"), :prompt => "Scegli cliente...", :include_blank => "Tutti" %>
+
+<script>
+    $(function(){
+      $('#customer_id').bind('change', function () {
+         var url = "articles?customer=" + $(this).val()
+          if (url) {
+              window.location.replace(url);
+          }
+          return false;
+      });
+    });
+</script>
+
+
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns pagination"
+  <%= will_paginate @articles %>
+  </div>
+  </div>
+  <div class="row">
   <table>
     <thead>
       <tr>
@@ -10,6 +46,8 @@
         <th>Cliente</th>
         <th>Immagine</th>
         <th>Disegno</th>
+        <th>Specifiche</th>
+        <th>Prezzo</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -19,9 +57,12 @@
         <tr>
           <td><%= article.code %></td>
           <td><%= article.description %></td>
-          <td><%= article.customer.name %></td>
+          <td><%= article.customer.name if article.customer.present? %></td>
           <td><%= article.picture %></td>
-          <td><%= article.drawing %></td>
+          <td class="center_td"><%= link_to '<i class="fa fa-file-text-o fa-2x"></i>'.html_safe, article.drawing_url if article.drawing.present? %></td>
+          <td class="center_td"><%= link_to '<i class="fa fa-gear fa-2x"></i>'.html_safe, article.spec_url if article.spec.present? %></td>
+
+          <td><%= "%.5f" % article.price if article.price.present? %></td>
           <td><%= link_to 'Dettagli', article, :class=>"button" %></td>
           <td><%= link_to 'Modifica', edit_article_path(article), :class=>"button warning" %></td>
           <td><%= link_to 'Elimina', article, method: :delete, data: { confirm: 'Sei sicuro?' }, :class=>"button alert" %></td>

@@ -22,7 +22,7 @@
         <td><%= metalwork.name %></td>
         <td><%= metalwork.description %></td>
         <td><%= metalwork.picture %></td>
-        <td><%= metalwork.machine.name %></td>
+        <td><%= metalwork.machine.name if metalwork.machine.present? %></td>
         <td><%= metalwork.tool.name if metalwork.tool.present? %></td>
         <td><%= link_to 'Dettagli', metalwork, :class=>"button" %></td>
         <td><%= link_to 'Modifica', edit_metalwork_path(metalwork), :class=>"warning button" %></td>

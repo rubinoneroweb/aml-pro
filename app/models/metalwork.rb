@@ -3,4 +3,8 @@ class Metalwork < ActiveRecord::Base
     
     belongs_to :machine
     belongs_to :tool
+    
+     has_and_belongs_to_many :articles
+    
+    
 end

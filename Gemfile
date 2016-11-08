@@ -40,6 +40,13 @@ gem 'foundation-datetimepicker-rails'
 # Font Awesome
 gem "font-awesome-rails"
 
+# Pagination
+gem 'will_paginate', '~> 3.1.1'
+
+gem 'jquery-turbolinks'
+
+gem 'jquery-ui-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

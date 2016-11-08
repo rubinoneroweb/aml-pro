@@ -14,7 +14,7 @@ class Tool < ActiveRecord::Base
     end
     
     def label_machine
-        self.machine.name + " - " + self.name
+        self.machine.name + " - " + self.name if self.machine.present?
     end
     
 end

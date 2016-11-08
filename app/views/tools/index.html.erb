@@ -20,10 +20,10 @@
         <td><%= tool.name %></td>
         <td><%= tool.description %></td>
         <td><%= tool.picture %></td>
-        <td><%= tool.machine.name %></td>
+        <td><%= tool.machine.name if tool.machine.present? %></td>
         <td><%= link_to 'Dettagli', tool, :class=>"button" %></td>
         <td><%= link_to 'Modifica', edit_tool_path(tool), :class=>"button warning" %></td>
-        <td><%= link_to 'Elimina', tool, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"button alert" %></td>
+        <td><%= link_to 'Elimina', tool, method: :delete, data: { confirm: 'Vuoi davvero eliminare questo strumento?' }, :class=>"button alert" %></td>
       </tr>
     <% end %>
   </tbody>

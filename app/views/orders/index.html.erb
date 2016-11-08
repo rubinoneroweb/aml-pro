@@ -20,8 +20,8 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.date_ric.strftime("%d/%m/%Y") %></td>
-        <td><%= order.date_cons.strftime("%d/%m/%Y") %></td>
+        <td><%= order.date_ric.strftime("%d/%m/%Y") if order.date_ric.present? %></td>
+        <td><%= order.date_cons.strftime("%d/%m/%Y") if order.date_cons.present? %></td>
         <td><%= order.note %></td>
         <td><%= order.article.code %></td>
         <td><%= order.customer.name %></td>
