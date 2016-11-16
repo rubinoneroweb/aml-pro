@@ -27,6 +27,14 @@ class Job < ActiveRecord::Base
         end
     end
     
+    def alert_class
+        if self.task.present? && self.task.speed.present? && self.speed.present? && self.speed>self.task.speed 
+            "good"
+        else
+            "bad"
+        end
+    end
+    
     
     
     

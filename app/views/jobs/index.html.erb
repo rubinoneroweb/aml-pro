@@ -28,7 +28,7 @@
         <td><%= job.task.metalwork.description if job.task.present?%></td>
         <td><%= job.q_tot %></td>
         <td><%= job.haul %></td>
-        <td><%= job.speed.round(4) %></td>
+        <td class="<%= job.alert_class %>"><%= job.speed.round(4) %></td>
         <td><%= job.order.label_print if job.order.present?%></td>
         <td><%= link_to 'Dettagli', job %></td>
         <td><%= link_to 'Modifica', edit_job_path(job) %></td>
