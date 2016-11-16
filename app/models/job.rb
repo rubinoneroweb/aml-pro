@@ -7,8 +7,27 @@ class Job < ActiveRecord::Base
     
     def haul
         
+       # self.completed_at - self.started_at
+       time_diff = TimeDifference.between(self.completed_at, self.started_at)
+      time_diff.in_general[:minutes].to_s + "' " + time_diff.in_general[:seconds].to_s+"''"
         
     end
+    
+    
+    def speed
+       time_diff = TimeDifference.between(self.completed_at, self.started_at).in_minutes
+       q_tot / time_diff
+    end
+    
+    def q_tot
+        if self.q_fin.present?
+            self.q_fin - self.q_in
+        else
+            0
+        end
+    end
+    
+    
     
     
 end

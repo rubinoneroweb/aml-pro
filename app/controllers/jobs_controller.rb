@@ -15,7 +15,9 @@ class JobsController < ApplicationController
   # GET /jobs/new
   def new
     @job = Job.new
-    @task = params[:task_id]
+    @task = Task.find params[:task_id]
+    @job.task_id = @task.id
+    
   end
 
   # GET /jobs/1/edit
@@ -57,11 +59,11 @@ class JobsController < ApplicationController
   def destroy
     @job.destroy
     respond_to do |format|
-      format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
+      format.html { redirect_to jobs_url, notice: 'Lavorazione eliminata.' }
       format.json { head :no_content }
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_job

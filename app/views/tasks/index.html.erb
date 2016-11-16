@@ -6,6 +6,19 @@
 
 
 <div class="row">
+  <%= select_tag 'operator_id', options_from_collection_for_select(Operator.all, "id", "name"), :prompt => "Scegli operatore...", :include_blank => "Tutti" %>
+
+<script>
+    $(function(){
+      $('#operator_id').bind('change', function () {
+         var url = "tasks?operator=" + $(this).val()
+          if (url) {
+              window.location.replace(url);
+          }
+          return false;
+      });
+    });
+</script>
   <div class="small-12 columns">
 <table>
   <thead>
@@ -16,7 +29,9 @@
       <th>Quantità</th>
       <th>Velocità</th>
       <th>Completato</th>
+       <% if @admin %>
       <th colspan="4"> - </th>
+      <% end %>
       
     </tr>
   </thead>
@@ -30,10 +45,12 @@
         <td><%= task.quantity %></td>
         <td><%= task.speed %></td>
         <td><%= task.done %></td>
-        <td><%= link_to 'Procedi', new_job_path(), :task_id=> task.id, :class=>"button large" %></td>
+        <td><%= link_to 'Procedi', new_job_path(:task_id=> task.id),  :class=>"button large" %></td>
+        <% if @admin %>
         <td><%= link_to 'Dettagli', task, :class=>"button large" %></td>
         <td><%= link_to 'Modifica', edit_task_path(task), :class=>"button large" %></td>
         <td><%= link_to 'Elimina', task, method: :delete, data: { confirm: 'Sei sicuro di voler eliminare questa fase?' }, :class=>"button large"%></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

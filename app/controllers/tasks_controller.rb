@@ -4,7 +4,16 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @admin = false
+    
+    @operators = Customer.all
+    if params[:operator].present?
+        @operator = Operator.find  params[:operator]
+        @tasks = Task.where(operator_id: params[:operator])
+    else
+      @tasks = Task.all
+      #@articles = Article.order('code ASC').page(params[:page])
+    end
   end
 
   # GET /tasks/1

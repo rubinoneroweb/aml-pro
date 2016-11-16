@@ -2,6 +2,8 @@
 
 <h1>Elenco lavorazioni</h1>
 
+
+
 <table>
   <thead>
     <tr>
@@ -9,6 +11,9 @@
       <th>Data e ora inizio</th>
       <th>data e ora fine</th>
       <th>Codice lavorazione</th>
+      <th>Quantità</th>
+      <th>Tempo</th>
+      <th>Velocità</th> 
       <th>Commessa</th>
       <th colspan="3"></th>
     </tr>
@@ -17,10 +22,13 @@
   <tbody>
     <% @jobs.each do |job| %>
       <tr>
-        <td><%= job.operator.full_name if job.operator.present? %></td>
+        <td><%= job.task.operator.full_name if job.task.present?%></td>
         <td><%= job.started_at %></td>
         <td><%= job.completed_at %></td>
-        <td><%= job.metalwork_id %></td>
+        <td><%= job.task.metalwork.description if job.task.present?%></td>
+        <td><%= job.q_tot %></td>
+        <td><%= job.haul %></td>
+        <td><%= job.speed.round(4) %></td>
         <td><%= job.order.label_print if job.order.present?%></td>
         <td><%= link_to 'Dettagli', job %></td>
         <td><%= link_to 'Modifica', edit_job_path(job) %></td>

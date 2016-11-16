@@ -24,26 +24,39 @@ $(function(){ $(document).foundation()});
 function pad(n) {
     return (n < 10) ? ("0" + n) : n;
 }
+
+var startTime;
  
+startTime = function() {
+    var now = new Date($.now())
+  $('#job_started_at').val(now);
+  $('#buttonstart').attr('disabled', true);
+ $('#buttonstop').attr('disabled', false);
+  h = now.getHours(); // 0-24 format
+  m = now.getMinutes();
+  $('#startLabel').text(h + " : " + pad(m));
+};
+
+
+ function startJob() {
+     var now = new Date($.now())
+     $('#job_started_at').val(now);
+     h = now.getHours(); // 0-24 format
+     m = now.getMinutes();
+     $('#startLabel').text(h + " : " + pad(m));
+}
+
 
 var stopTime;
 
 stopTime = function() {
     var now = new Date($.now())
   $('#job_completed_at').val(new Date($.now()));
-  $('#buttonstop').attr('disabled', true);
+ /* $('#buttonstop').attr('disabled', true);*/
   h = now.getHours(); // 0-24 format
   m = now.getMinutes();
   $('#stopLabel').text(h + " : " + pad(m));
+   $('#buttonstop').attr('disabled', true);
 };
 
 
-startTime = function() {
-    var now = new Date($.now())
-  $('#job_started_at').val(now);
-  $('#buttonstart').attr('disabled', true);
- // $('#buttonstop').attr('disabled', false);
-  h = now.getHours(); // 0-24 format
-  m = now.getMinutes();
-  $('#startLabel').text(h + " : " + pad(m));
-};

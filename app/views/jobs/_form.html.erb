@@ -3,17 +3,18 @@
   
   
   <div class="row">
-    <h3> </h3>
+    <h5> <%= @task.order.label_print + " - " + @task.order.article.description %> </h5>
+    <h4>Operatore: <%= @task.operator.name + " - " + @task.quantity.to_s %> pezzi</h4>
     <div class="small-6 columns">
-      <h2 id="startLabel">&nbsp;</span>
-          <%= f.input :started_at, as: :hidden, :html5=>true, :data=>{:date_format=>"dd/mm/yyyy"}, :label=>"Inizio" %>
+      <h2 id="startLabel">&nbsp;</h2>
+          <%= f.input :started_at, :as =>:hidden, :html5=>true, :label=>"Inizio" %>
           <a href="#" class="button large round" id="buttonstart" onClick="startTime();">START</a>
 
     </div>
     
     <div class="small-6 columns">
-       <h2 id="stopLabel">&nbsp;</span>
-        <%= f.input :completed_at,  as: :hidden, html5: true,:data=>{:date_format=>"dd/mm/yyyy"}, :label=>"Fine"  %>
+       <h2 id="stopLabel">&nbsp;</h2>
+        <%= f.input :completed_at, :as => :hidden, html5: true, :label=>"Fine"  %>
        <a href="#" class="button large round " id="buttonstop" onClick="stopTime();">STOP</a>
     </div>
   </div>
@@ -28,7 +29,7 @@
   <div class="form-inputs">
     
     
-    
+    <%= f.hidden_field :task_id, :value => @task.id %>
     <%= f.association :operator, as: :hidden, label_method: :full_name %>
     <%= f.association :metalwork, as: :hidden %>
     <%= f.association :order, as: :hidden, label_method: :label_print, :label=>"Commessa" %>
@@ -37,6 +38,6 @@
     
   </div>
   <div class="form-actions">
-    <%= f.button :submit, "Salva Lavorazione" %>
+    <%= f.button :submit, "Salva Lavorazione", :task_id => @task.id %>
   </div>
 <% end %>
