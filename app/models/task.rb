@@ -9,12 +9,24 @@ class Task < ActiveRecord::Base
     
     belongs_to :metalwork
     
-    has_many :tasks
+    has_many :jobs
     
    # validates :quantity, inclusion: { in: 1..(Order.find(self.order_id).pieces_remaining_for(self.metalwork.id)), message:"Numero di pezzi troppo alto"}
     
     def getOrder
         Order.find(self.order_id)
+    end
+    
+    def total_done
+        self.jobs.map{|j| j.q_tot}.sum
+    end
+    
+    def left_to_do
+        self.quantity - self.total_done
+    end
+    
+    def done?
+        self.left_to_do<1
     end
     
 end

@@ -3,6 +3,7 @@
   <%= f.error_notification %>
    <div class="row">
     <h4> Commessa: <%= @task.order.label_print %> - Articolo: <%=  @task.order.article.description %></h4>
+    <h5>Quantità: <%= @task.order.total_pieces %></h5>
   </div>
   <div class="form-inputs">
     <div class="row">

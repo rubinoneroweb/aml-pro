@@ -66,7 +66,7 @@
     
       <tbody>
         <% @tasks.each do |task| %>
-          <tr>
+          <tr style="border-top:1px solid black;">
             <td><%= task.operator.full_name %></td>
             <td><%= task.metalwork.description %></td>
             <td><%= task.order.label_print %></td>
@@ -77,6 +77,24 @@
             <td><%= link_to 'Modifica', edit_task_path(task), :class=>"button warning" %></td>
             <td><%= link_to 'Elimina', task, method: :delete, data: { confirm: 'Sei sicuro?' }, :class=>"button alert"%></td>
           </tr>
+          <tr class="jobs">
+              <th colspan="1"></td>
+              <th>Inizio</th>
+              <th>Durata</th>
+              <th>Quantità</th>
+              <th>Velocità</th>
+              <th colspan="4"></th>
+            </tr>
+          <% task.jobs.each do |job| %>
+            <tr class="jobs">
+              <td colspan="3"></td>
+              <td><%= job.started_at %></td>
+              <td><%= job.haul %></td>
+              <td><%= job.q_tot %></td>
+              <td><%= job.speed %></td>
+              <td colspan="2"></td>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
