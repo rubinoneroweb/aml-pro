@@ -31,7 +31,7 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       if @job.save
-        format.html { redirect_to jobs_url, notice: 'Job creato con successo' }
+        format.html { redirect_to tasks_url, notice: 'Lavorazione creata con successo' }
         format.json { render :show, status: :created, location: @job }
       else
         format.html { render :new }
