@@ -38,7 +38,7 @@ class Task < ActiveRecord::Base
     
     def total_speed
         0
-        self.total_done / (self.total_time / 60) unless self.total_time=0
+        self.total_done / (self.total_time / 60) unless self.total_time==0
     end
     
 end
