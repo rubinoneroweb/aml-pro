@@ -31,11 +31,12 @@
   </table>
   </div>
   <div class="row">
-  <div class="small-4 columns">Tempo totale: <%= @task.total_time %> </div>
-  <div class="small-4 columns">Quantità totale: <%= @task.total_done %> </div>
-  <div class="small-4 columns">Velocità: <%= @task.total_speed %> </div>
+  <div class="small-3 columns">Tempo totale: <%=format_total_time @task.total_time %> </div>
+  <div class="small-3 columns">Quantità totale: <%= @task.total_done %> </div>
+  <div class="small-3 columns">Velocità: <%= @task.total_speed %> </div>
+  <div class="small-3 columns">Velocità prevista: <%= @task.metalwork.speed %> </div>
 </div>
-  
+  <hr>
 <div class="row">
   <div class="small-6 columns"><%= link_to "Torna all'ordine", @task.order, :class=>"button large" %></div>
   <div class="small-6 columns"></div>
