@@ -36,7 +36,7 @@
       <% @order.article.metalworks.each do |work| %>
       
       <li>
-        Ci sono ancora <%= @order.pieces_remaining_for(work) %> pezzi da fare per il processo <%= Metalwork.find(work).description %>.
+        Ci sono ancora <%= @order.pieces_remaining_for(work) %> pezzi da assegnare per il processo <%= Metalwork.find(work).description %>.
       </li>
       
       <% end %>

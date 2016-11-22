@@ -4,7 +4,8 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.order(:date_cons)
+    @orders = Order.paginate(:page => params[:page])
+   # @orders = @orders.paginate(:page => params[:page])
   end
 
   # GET /orders/1

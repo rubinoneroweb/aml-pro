@@ -3,6 +3,8 @@
 <h1>Elenco Commesse</h1>
 </div>
 <div class="row">
+  <%= will_paginate @units %>
+  
 <table>
   <thead>
     <tr>
@@ -18,7 +20,7 @@
   </thead>
 
   <tbody>
-    <% @orders.each do |order| %>
+    <%  @orders.each do |order| %>
       <tr>
         <td><%= order.date_ric.strftime("%d/%m/%Y") if order.date_ric.present? %></td>
         <td><%= order.date_cons.strftime("%d/%m/%Y") if order.date_cons.present? %></td>

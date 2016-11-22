@@ -4,6 +4,7 @@ class Order < ActiveRecord::Base
     has_many :jobs
     has_many :tasks
     
+    self.per_page = 7
     
     def label_print
         self.customer.name + " - " + self.date_ric.strftime("%d/%m/%Y")

@@ -3,6 +3,8 @@ class Task < ActiveRecord::Base
     #belongs_to :ordr, :foreign_key=>'order_id', :class_name=>'Order'
     alias_attribute :ordr, :order
     
+    
+    
     belongs_to :order
     
     belongs_to :operator
@@ -35,7 +37,8 @@ class Task < ActiveRecord::Base
     end
     
     def total_speed
-        self.total_done / (self.total_time / 60)
+        0
+        self.total_done / (self.total_time / 60) unless self.total_time=0
     end
     
 end
