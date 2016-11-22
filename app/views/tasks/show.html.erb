@@ -1,30 +1,46 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <h2><%= @task.order.label_print %></h2>
+  <h3><%= @task.metalwork.description %></h3>
+</div>
+<div class="row">
+  <div class="small-6 columns"><strong>Operatore:</strong> <%= @task.operator.name %></div>
+  <div class="small-6 columns">  <strong>Quantità:</strong>
+  <%= @task.quantity %></div>
+</div>
+<div class="row">
+  <table>
+     <tr class="jobs">
+              
+              <th>Inizio</th>
+              <th>Durata</th>
+              <th>Quantità</th>
+              <th>Velocità</th>
+              <th colspan="4"></th>
+            </tr>
+          <% @task.jobs.each do |job| %>
+            <tr class="jobs">
+              
+              <td><%= job.started_at %></td>
+              <td><%= job.haul %></td>
+              <td><%= job.q_tot %></td>
+              <td><%= job.speed %></td>
+              <td colspan="2"></td>
+            </tr>
+          <% end %>
+  </table>
+  </div>
+  <div class="row">
+  <div class="small-4 columns">Tempo totale: <%= @task.total_time %> </div>
+  <div class="small-4 columns">Quantità totale: <%= @task.total_done %> </div>
+  <div class="small-4 columns">Velocità: <%= @task.total_speed %> </div>
+</div>
+  
+<div class="row">
+  <div class="small-6 columns"><%= link_to "Torna all'ordine", @task.order, :class=>"button large" %></div>
+  <div class="small-6 columns"></div>
+</div>
 
-<p>
-  <strong>Operator:</strong>
-  <%= @task.operator.name %>
-</p>
-
-<p>
-  <strong>Process:</strong>
-  <%= @task.metalwork.description %>
-</p>
-
-<p>
-  <strong>Order:</strong>
-  <%= @task.order.label_print %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @task.quantity %>
-</p>
 
 
-<p>
-  <strong>Done:</strong>
-  <%= @task.done %>
-</p>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>

@@ -13,6 +13,10 @@ class Job < ActiveRecord::Base
         
     end
     
+    def haul_time
+        TimeDifference.between(self.completed_at, self.started_at)
+    end
+    
     
     def speed
        time_diff = TimeDifference.between(self.completed_at, self.started_at).in_minutes

@@ -29,4 +29,13 @@ class Task < ActiveRecord::Base
         self.left_to_do<1
     end
     
+    def total_time
+        
+        self.jobs.map{|j| j.haul_time.in_minutes}.sum
+    end
+    
+    def total_speed
+        self.total_done / self.total_speed
+    end
+    
 end
