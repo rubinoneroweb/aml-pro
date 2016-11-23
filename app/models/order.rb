@@ -4,6 +4,8 @@ class Order < ActiveRecord::Base
     has_many :jobs
     has_many :tasks
     
+    validates :total_pieces, :presence => true
+    
     self.per_page = 7
     
     def label_print
