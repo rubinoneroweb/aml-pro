@@ -24,7 +24,7 @@ class Job < ActiveRecord::Base
     end
     
     def q_tot
-        if self.q_fin.present?
+        if self.q_fin.present? && self.q_in.present?
             self.q_fin - self.q_in
         else
             0

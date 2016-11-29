@@ -3,28 +3,32 @@
   
   
   <div class="row">
-    <h5> <%= @task.order.label_print + " - " + @task.order.article.description %> </h5>
+    <h2>Consegna <%= @task.order.expire + " - " + @task.order.article.code %> </h2>
     <h4>Operatore: <%= @task.operator.name + " - " + @task.quantity.to_s %> pezzi</h4>
     <div class="small-6 columns">
       <h2 id="startLabel">&nbsp;</h2>
-          <%= f.input :started_at, :as =>:hidden, :html5=>true, :label=>"Inizio" %>
-          <a href="#" class="button large round" id="buttonstart" onClick="startTime();">START</a>
+          <%= f.input :started_at, :as =>:hidden, :html5=>true %>
+         
 
     </div>
     
     <div class="small-6 columns">
        <h2 id="stopLabel">&nbsp;</h2>
-        <%= f.input :completed_at, :as => :hidden, html5: true, :label=>"Fine"  %>
-       <a href="#" class="button large round " id="buttonstop" onClick="stopTime();">STOP</a>
+        <%= f.input :completed_at, :as => :hidden, html5: true  %>
+       
     </div>
+  </div>
+  <div class ="row">
+     <a href="#" class="button success large round small-6 columns" id="buttonstart" onClick="startTime();">START</a>
+     <a href="#" class="button disabled alert large round small-6 columns" id="buttonstop" onClick="stopTime();">STOP</a>
   </div>
   <div class="row">
     <div class="small-6 columns">
-       <%= f.input :q_in, :label=>"Quantità iniziale", :value=>0 %>
+       <%= f.input :q_in, :label=>"Quantità iniziale", input_html: {value: 0} %>
     </div>
   
     <div class="small-6 columns">
-       <%= f.input :q_fin, :label=>"Quantità finale" %>
+       <%= f.input :q_fin, :label=>"Quantità finale", input_html: {value: 0} %>
     </div>
   <div class="form-inputs">
     
@@ -32,12 +36,14 @@
     <%= f.hidden_field :task_id, :value => @task.id %>
     <%= f.association :operator, as: :hidden, label_method: :full_name %>
     <%= f.association :metalwork, as: :hidden %>
-    <%= f.association :order, as: :hidden, label_method: :label_print, :label=>"Commessa" %>
+    <%= f.association :order, as: :hidden, label_method: :label_print %>
   </div>
   <div>
     
   </div>
   <div class="form-actions">
-    <%= f.button :submit, "Salva Lavorazione", :task_id => @task.id %>
+    <div class ="row">
+    <%= f.button :submit, "SALVA LAVORAZIONE", :task_id => @task.id, :class=>"12-small columns disabled", :id=>"buttonsave" %>
+    </div>
   </div>
 <% end %>

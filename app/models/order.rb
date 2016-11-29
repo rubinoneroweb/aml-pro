@@ -15,6 +15,10 @@ class Order < ActiveRecord::Base
         self.customer.name + " - " + self.date_cons.strftime("%d/%m/%Y")
     end
     
+    def expire
+        self.date_cons.strftime("%d/%m/%Y")
+    end
+    
     def label_timespan
         t = self.date_cons - self.date_ric
         

@@ -35,6 +35,8 @@ startTime = function() {
   h = now.getHours(); // 0-24 format
   m = now.getMinutes();
   $('#startLabel').text(h + " : " + pad(m));
+       $('#buttonstop').removeClass("disabled");
+
 };
 
 
@@ -44,6 +46,7 @@ startTime = function() {
      h = now.getHours(); // 0-24 format
      m = now.getMinutes();
      $('#startLabel').text(h + " : " + pad(m));
+    
 }
 
 
@@ -57,6 +60,7 @@ stopTime = function() {
   m = now.getMinutes();
   $('#stopLabel').text(h + " : " + pad(m));
    $('#buttonstop').attr('disabled', true);
+       $('#buttonsave').removeClass("disabled");
 };
 
 

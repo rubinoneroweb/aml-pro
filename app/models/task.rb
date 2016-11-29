@@ -24,11 +24,12 @@ class Task < ActiveRecord::Base
     end
     
     def left_to_do
-        self.quantity - self.total_done
+        self.quantity - self.total_done if self.quantity.present?
     end
     
     def done?
-        self.left_to_do<1
+        false
+        self.left_to_do<1 if self.left_to_do.present?
     end
     
     def total_time
