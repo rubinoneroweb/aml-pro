@@ -13,6 +13,13 @@ class OrdersController < ApplicationController
   def show
     @tasks = @order.tasks
   end
+  
+  def update_articles
+    @articles = Article.where("customer_id = ?", params[:customer_id])
+    respond_to do |format|
+      format.js
+    end
+  end
 
   # GET /orders/new
   def new

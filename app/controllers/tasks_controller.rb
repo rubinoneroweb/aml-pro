@@ -29,7 +29,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-    @task.order_id = params[:order_id]
+    #@task.order_id = params[:order_id]
   end
 
   # POST /tasks

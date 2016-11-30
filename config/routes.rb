@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  
+  get 'orders/update_articles', as: 'update_articles'
+
   resources :jobs
   resources :tasks
   resources :orders
   resources :metalworks
   get 'pages/home'
+  
+ 
 
   resources :articles
   resources :customers

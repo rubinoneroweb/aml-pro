@@ -2,3 +2,15 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+$ ->
+  $(document).on 'change', '#order_customer_id', (evt) ->
+    $.ajax 'update_articles',
+      type: 'GET'
+      dataType: 'script'
+      data: {
+        customer_id: $("#order_customer_id option:selected").val()
+      }
+      error: (jqXHR, textStatus, errorThrown) ->
+        console.log("AJAX Error: #{textStatus}")
+      success: (data, textStatus, jqXHR) ->
+        console.log("Dynamic customer select OK!")
