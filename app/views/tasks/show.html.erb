@@ -25,7 +25,7 @@
               <td><%= job.started_at %></td>
               <td><%= job.haul %></td>
               <td><%= job.q_tot %></td>
-              <td><%= job.speed %></td>
+              <td><%= job.speed.round(2) %></td>
               <td><%= job.note %></td>
               
             </tr>
@@ -35,7 +35,7 @@
   <div class="row">
   <div class="small-3 columns">Tempo totale: <%=format_total_time @task.total_time %> </div>
   <div class="small-3 columns">Quantità totale: <%= @task.total_done %> </div>
-  <div class="small-3 columns">Velocità: <%= @task.total_speed %> </div>
+  <div class="small-3 columns">Velocità: <%= @task.total_speed.round(2) %> </div>
   <div class="small-3 columns">Velocità prevista: <%= @task.metalwork.speed %> </div>
 </div>
   <hr>

@@ -91,7 +91,7 @@
               <td><%= job.started_at %></td>
               <td><%= job.haul %></td>
               <td><%= job.q_tot %></td>
-              <td><%= job.speed %></td>
+              <td><%= job.speed.round(2) %></td>
               <td colspan="2"></td>
             </tr>
           <% end %>
