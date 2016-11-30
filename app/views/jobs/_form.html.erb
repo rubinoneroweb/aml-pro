@@ -5,6 +5,7 @@
   <div class="row">
     <h2>Consegna <%= @task.order.expire + " - " + @task.order.article.code %> </h2>
     <h4>Operatore: <%= @task.operator.name + " - " + @task.quantity.to_s %> pezzi</h4>
+    
     <div class="small-6 columns">
       <h2 id="startLabel">&nbsp;</h2>
           <%= f.input :started_at, :as =>:hidden, :html5=>true %>
@@ -39,7 +40,14 @@
     <%= f.association :order, as: :hidden, label_method: :label_print %>
   </div>
   <div>
-    
+  <div class ="row">
+    <div class="small-2 columns">
+    <a class="button large right" href="#" onClick="$('#note_field').slideToggle('slow');">Aggiungi nota</a>
+    </div>
+     <div class="small-10 columns">
+       <%= f.input_field :note, label: false, :class=> "", :style=>"display:none; height:150px;", :id=>"note_field" %>
+    </div>
+  </div>
   </div>
   <div class="form-actions">
     <div class ="row">

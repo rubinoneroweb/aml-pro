@@ -16,7 +16,8 @@
               <th>Durata</th>
               <th>Quantità</th>
               <th>Velocità</th>
-              <th colspan="4"></th>
+              <th>Note</th>
+              
             </tr>
           <% @task.jobs.each do |job| %>
             <tr class="jobs">
@@ -25,7 +26,8 @@
               <td><%= job.haul %></td>
               <td><%= job.q_tot %></td>
               <td><%= job.speed %></td>
-              <td colspan="2"></td>
+              <td><%= job.note %></td>
+              
             </tr>
           <% end %>
   </table>
