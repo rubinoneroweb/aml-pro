@@ -1,9 +1,23 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
 <h1>Elenco Commesse</h1>
+
+  <%= select_tag 'customer_id', options_from_collection_for_select(Customer.all, "id", "name"), :prompt => "Scegli cliente...", :include_blank => "Tutti" %>
+
+<script>
+    $(function(){
+      $('#customer_id').bind('change', function () {
+         var url = "orders?customer=" + $(this).val()
+          if (url) {
+              window.location.replace(url);
+          }
+          return false;
+      });
+    });
+</script>
 </div>
 <div class="row">
-  <%= will_paginate @units %>
+  <%= will_paginate @orders %>
   
 <table>
   <thead>

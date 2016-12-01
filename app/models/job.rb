@@ -19,8 +19,8 @@ class Job < ActiveRecord::Base
     
     
     def speed
-       time_diff = TimeDifference.between(self.completed_at, self.started_at).in_minutes
-       q_tot / time_diff
+       time_diff = TimeDifference.between(self.completed_at, self.started_at).in_seconds
+       (q_tot / time_diff) * 60
     end
     
     def q_tot

@@ -5,7 +5,12 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.paginate(:page => params[:page])
-   # @orders = @orders.paginate(:page => params[:page])
+   if params[:customer].present?
+        @customer = Customer.find  params[:customer]
+        @orders = Order.where(customer_id: params[:customer]).page(params[:page])
+    else
+      @orders = Order.paginate(:page => params[:page])
+    end
   end
 
   # GET /orders/1

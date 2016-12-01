@@ -6,7 +6,7 @@ class Order < ActiveRecord::Base
     
     validates :total_pieces, :presence => true
     
-    self.per_page = 7
+    self.per_page = 6
     
     def label_print
         self.customer.name + " - " + self.date_ric.strftime("%d/%m/%Y")
