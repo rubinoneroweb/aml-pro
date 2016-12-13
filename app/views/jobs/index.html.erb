@@ -29,7 +29,6 @@
       <th>Quantità</th>
       <th>Tempo</th>
       <th>Velocità</th> 
-      <th>Commessa</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -38,14 +37,13 @@
     <% @jobs.each do |job| %>
       <tr>
         <td><%= job.task.operator.full_name if job.task.present?%></td>
-        <td><%= job.started_at %></td>
-        <td><%= job.completed_at %></td>
+        <td><%= job.start_time_h %></td>
+        <td><%= job.end_time_h %></td>
         <td><%= job.article.code if job.article%></td>
         <td><%= job.task.metalwork.description if job.task %></td>
         <td><%= job.q_tot %></td>
         <td><%= job.haul %></td>
         <td class="<%= job.alert_class %>"><%= job.speed.round(4) %></td>
-        <td><%= job.order.label_print if job.order.present?%></td>
         <td><%= link_to 'Dettagli', job , :class=>"button"%></td>
         <td><%= link_to 'Modifica', edit_job_path(job) , :class=>"button warning"%></td>
         <td><%= link_to 'Elimina', job, :class=>"button alert", method: :delete, data: { confirm: 'Sei Sicuro?' } %></td>

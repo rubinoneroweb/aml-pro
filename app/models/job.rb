@@ -6,6 +6,14 @@ class Job < ActiveRecord::Base
     belongs_to :task
     delegate :article, :to => :order , allow_nil: true
     
+    def start_time_h
+        self.started_at.strftime("%d/%m/%Y %R")
+    end
+    
+    def end_time_h
+        self.completed_at.strftime("%d/%m/%Y %R")
+    end
+    
     def haul
         
        # self.completed_at - self.started_at
