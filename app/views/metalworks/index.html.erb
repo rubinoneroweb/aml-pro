@@ -7,7 +7,7 @@
 <table>
   <thead>
     <tr>
-      <th>Codice</th>
+      
       <th>Descrizione</th>
       <th>Velocità</th>
       <th>Macchinario</th>
@@ -19,7 +19,7 @@
   <tbody>
     <% @metalworks.each do |metalwork| %>
       <tr>
-        <td><%= metalwork.name %></td>
+        
         <td><%= metalwork.description %></td>
         <td><%= metalwork.speed if metalwork.speed.present? %></td>
         <td><%= metalwork.machine.name if metalwork.machine.present? %></td>

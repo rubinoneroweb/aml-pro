@@ -5,6 +5,15 @@ class JobsController < ApplicationController
   # GET /jobs.json
   def index
     @jobs = Job.all
+    
+
+    if params[:article].present?
+        @article = Article.find  params[:article]
+        @jobs = Order.where(:article_id => @article.id).map{|o| o.tasks}.flatten.map{|t| t.jobs}.flatten
+    else
+     @jobs = Job.all
+      #@articles = Article.order('code ASC').page(params[:page])
+    end
   end
 
   # GET /jobs/1

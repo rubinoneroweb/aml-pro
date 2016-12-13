@@ -37,7 +37,6 @@
     <%= f.hidden_field :task_id, :value => @task.id %>
     <%= f.association :operator, as: :hidden, label_method: :full_name %>
     <%= f.association :metalwork, as: :hidden %>
-    <%= f.association :order, as: :hidden, label_method: :label_print %>
   </div>
   <div>
   <div class ="row">

@@ -2,8 +2,9 @@ class Job < ActiveRecord::Base
     
     belongs_to :operator
     belongs_to :metalwork
-    belongs_to :order
+    delegate :order, :to => :task   
     belongs_to :task
+    delegate :article, :to => :order 
     
     def haul
         
@@ -32,7 +33,7 @@ class Job < ActiveRecord::Base
     end
     
     def alert_class
-        if self.task.present? && self.task.speed.present? && self.speed.present? && self.speed>self.task.speed 
+        if self.task.present? && self.task.metalwork.present? && self.speed>self.task.metalwork.speed 
             "good"
         else
             "bad"

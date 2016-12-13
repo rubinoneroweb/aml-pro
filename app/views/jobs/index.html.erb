@@ -1,7 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Elenco lavorazioni</h1>
+<div class="row">
+  <%= select_tag 'article_id', options_from_collection_for_select(Article.all, "id", "code"), :prompt => "Scegli articolo...", :include_blank => "Tutti" %>
 
+<script>
+    $(function(){
+      $('#article_id').bind('change', function () {
+         var url = "/jobs?article=" + $(this).val()
+          if (url) {
+              window.location.replace(url);
+          }
+          return false;
+      });
+    });
+</script>
+</div>
 
 
 <table>
@@ -10,7 +24,8 @@
       <th>Operatore</th>
       <th>Data e ora inizio</th>
       <th>data e ora fine</th>
-      <th>Codice lavorazione</th>
+      <th>Articolo</th>
+      <th>Processo</th>
       <th>Quantità</th>
       <th>Tempo</th>
       <th>Velocità</th> 
@@ -25,14 +40,15 @@
         <td><%= job.task.operator.full_name if job.task.present?%></td>
         <td><%= job.started_at %></td>
         <td><%= job.completed_at %></td>
-        <td><%= job.task.metalwork.description if job.task.present?%></td>
+        <td><%= job.article.code%></td>
+        <td><%= job.task.metalwork.description%></td>
         <td><%= job.q_tot %></td>
         <td><%= job.haul %></td>
         <td class="<%= job.alert_class %>"><%= job.speed.round(4) %></td>
         <td><%= job.order.label_print if job.order.present?%></td>
-        <td><%= link_to 'Dettagli', job %></td>
-        <td><%= link_to 'Modifica', edit_job_path(job) %></td>
-        <td><%= link_to 'Elimina', job, method: :delete, data: { confirm: 'Sei Sicuro?' } %></td>
+        <td><%= link_to 'Dettagli', job , :class=>"button"%></td>
+        <td><%= link_to 'Modifica', edit_job_path(job) , :class=>"button warning"%></td>
+        <td><%= link_to 'Elimina', job, :class=>"button alert", method: :delete, data: { confirm: 'Sei Sicuro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -40,4 +56,4 @@
 
 <br>
 
-<%= link_to 'Torna a lavorazioni', tasks_path, :class=>'button' %>
+<%= link_to 'Torna al pannello di controllo', '/', :class=>'button' %>
