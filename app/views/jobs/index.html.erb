@@ -40,8 +40,8 @@
         <td><%= job.task.operator.full_name if job.task.present?%></td>
         <td><%= job.started_at %></td>
         <td><%= job.completed_at %></td>
-        <td><%= job.article.code%></td>
-        <td><%= job.task.metalwork.description%></td>
+        <td><%= job.article.code if job.article%></td>
+        <td><%= job.task.metalwork.description if job.task %></td>
         <td><%= job.q_tot %></td>
         <td><%= job.haul %></td>
         <td class="<%= job.alert_class %>"><%= job.speed.round(4) %></td>
