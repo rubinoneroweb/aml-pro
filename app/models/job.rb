@@ -18,7 +18,12 @@ class Job < ActiveRecord::Base
         
        # self.completed_at - self.started_at
        time_diff = TimeDifference.between(self.completed_at, self.started_at)
-      time_diff.in_general[:minutes].to_s + "' " + time_diff.in_general[:seconds].to_s+"''"
+       if  time_diff.in_general[:hours] >0
+            time_diff.in_general[:hours].to_s + "h " + time_diff.in_general[:minutes].to_s + "' " + time_diff.in_general[:seconds].to_s+"''"
+       else
+            time_diff.in_general[:minutes].to_s + "' " + time_diff.in_general[:seconds].to_s+"''"
+       end
+     
         
     end
     
