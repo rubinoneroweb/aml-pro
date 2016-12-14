@@ -47,7 +47,7 @@
         <th>Immagine</th>
         <th>Disegno</th>
         <th>Specifiche</th>
-        <th>Prezzo</th>
+       
         <th colspan="2"></th>
       </tr>
     </thead>
@@ -62,7 +62,6 @@
           <td class="center_td"><%= link_to '<i class="fa fa-file-text-o fa-2x"></i>'.html_safe, article.drawing_url if article.drawing.present? %></td>
           <td class="center_td"><%= link_to '<i class="fa fa-gear fa-2x"></i>'.html_safe, article.spec_url if article.spec.present? %></td>
 
-          <td><%= "%.5f" % article.price if article.price.present? %></td>
           <td><%= link_to 'Modifica', edit_article_path(article), :class=>"button warning" %></td>
           <td><%= link_to 'Elimina', article, method: :delete, data: { confirm: 'Sei sicuro?' }, :class=>"button alert" %></td>
         </tr>
