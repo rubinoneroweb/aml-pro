@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @admin = false
+    @admin = params[:admin]
     
     @operators = Customer.all
     if params[:operator].present?
