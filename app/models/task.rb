@@ -27,14 +27,25 @@ class Task < ActiveRecord::Base
         self.quantity - self.total_done if self.quantity.present?
     end
     
+    def left_in_order
+    
+         self.order.total_pieces - self.order.tasks.where(metalwork: self.metalwork).map{|tsk| tsk.total_done}.sum
+
+    end
+    
     def done?
         false
-        self.left_to_do<1 if self.left_to_do.present?
+        self.left_in_order<1 if self.left_to_do.present?
     end
     
     def total_time
         
-        self.jobs.map{|j| j.haul_time.in_seconds}.sum
+        self.jobs.map{|j| j.haul_time.in_seconds}.sum / 60
+    end
+    
+    def total_delay
+        
+        self.jobs.map{|j| j.delay ? j.delay : 0 }.sum
     end
     
     def total_speed
@@ -42,6 +53,15 @@ class Task < ActiveRecord::Base
             0
         else
             self.total_done / (self.total_time / 60)
+        end
+    end
+    
+    
+    def alert_class
+        if self.metalwork.speed.present? && self.total_speed>self.metalwork.speed 
+            "good"
+        else
+            "bad"
         end
     end
     

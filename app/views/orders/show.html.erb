@@ -57,7 +57,7 @@
           <th>Lavorazione</th>
           <th>Commessa</th>
           <th>Quantità</th>
-          <th>Durata</th>
+          <th>Durata Prevista</th>
           <th>Completato</th>
           <th colspan="3"> - </th>
         </tr>
@@ -66,12 +66,12 @@
     
       <tbody>
         <% @tasks.each do |task| %>
-          <tr style="border-top:1px solid black;">
+          <tr style="border-top:3px solid black;">
             <td><%= task.operator.full_name %></td>
             <td><%= task.metalwork.description %></td>
             <td><%= task.order.label_print %></td>
             <td><%= task.quantity %></td>
-            <td><%= task.quantity / task.metalwork.speed if task.metalwork.speed %> min.</td>
+            <td><%= (task.quantity / task.metalwork.speed).round(0) if task.metalwork.speed %>'</td>
             <td><%= task.done ? "V" : "X" %></td>
             <td><%= link_to 'Dettagli', task, :class=>"button " %></td>
             <td><%= link_to 'Modifica', edit_task_path(task), :class=>"button warning" %></td>
@@ -83,8 +83,8 @@
               <th>Durata</th>
               <th>Quantità</th>
               <th>Velocità (Pz/min)</th>
-              <th>Note</th>
               <th>Ritardo</th>
+              <th>Note</th>
               
             </tr>
           <% task.jobs.each do |job| %>
@@ -94,10 +94,18 @@
               <td><%= job.haul %></td>
               <td><%= job.q_tot %></td>
               <td class="<%= job.alert_class %>"><%= job.speed.round(2) %></td>
-              <td><%= job.note %></td>
+              
               <td><%= job.delay %></td>
+              <td><%= job.note %></td>
             </tr>
           <% end %>
+          <tr class ="jobs total" style="border-top: 1px solid black">
+            <td colspan = 2>TOTALI</td>
+            <td><%= task.total_time.round(0) %>'</td>
+            <td><%= task.total_done %></td>
+            <td class="<%= task.alert_class %>"><%= task.total_speed.round(2) %></td>
+            <td><%= task.total_delay %></td>
+          </tr>
         <% end %>
       </tbody>
     </table>

@@ -28,7 +28,6 @@
       <th>Commessa</th>
       <th>Quantità</th>
       <th>Rimasti</th>
-      <th>Completato</th>
        <% if @admin %>
       <th colspan="4"> - </th>
       <% end %>
@@ -44,8 +43,8 @@
         <td><%= task.metalwork.description if task.metalwork.present? %></td>
         <td><%= task.order.label_print if task.order.present? %></td>
         <td><%= task.quantity %></td>
-        <td><%= task.left_to_do %></td>
-        <td><%= task.done? %></td>
+        <td><%= task.left_in_order %></td>
+        
         <td><%= link_to 'Procedi', new_job_path(:task_id=> task.id),  :class=>"button large" %></td>
         <% if @admin %>
         <td><%= link_to 'Dettagli', task, :class=>"button large" %></td>

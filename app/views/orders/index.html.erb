@@ -7,7 +7,7 @@
 <script>
     $(function(){
       $('#customer_id').bind('change', function () {
-         var url = "orders?customer=" + $(this).val()
+         var url = "/orders?customer=" + $(this).val()
           if (url) {
               window.location.replace(url);
           }
