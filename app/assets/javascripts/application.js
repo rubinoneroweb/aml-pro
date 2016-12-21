@@ -64,3 +64,19 @@ stopTime = function() {
 };
 
 
+var addDelay;
+addDelay= function () {
+ $('#job_delay').val( function(i, oldval) {
+    return ++oldval;
+});
+};
+
+var subDelay;
+subDelay= function () {
+ if($('#job_delay').val() > 0 )
+ { $('#job_delay').val( function(i, oldval) {
+    return --oldval;
+ 
+});
+}
+};

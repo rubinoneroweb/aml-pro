@@ -82,17 +82,20 @@
               <th>Inizio</th>
               <th>Durata</th>
               <th>Quantità</th>
-              <th>Velocità</th>
-              <th colspan="4"></th>
+              <th>Velocità (Pz/min)</th>
+              <th>Note</th>
+              <th>Ritardo</th>
+              
             </tr>
           <% task.jobs.each do |job| %>
             <tr class="jobs">
-              <td colspan="1"></td>
-              <td><%= job.started_at %></td>
+              <td colspan="1">&raquo;</td>
+              <td><%= job.start_time_h %></td>
               <td><%= job.haul %></td>
               <td><%= job.q_tot %></td>
-              <td><%= job.speed.round(2) %></td>
-              <td colspan="2"></td>
+              <td class="<%= job.alert_class %>"><%= job.speed.round(2) %></td>
+              <td><%= job.note %></td>
+              <td><%= job.delay %></td>
             </tr>
           <% end %>
         <% end %>

@@ -41,10 +41,19 @@
   <div>
   <div class ="row">
     <div class="small-2 columns">
-    <a class="button large right" href="#" onClick="$('#note_field').slideToggle('slow');">Aggiungi nota</a>
+    <a class="button large right" href="#" onClick="$('#delay_group').slideToggle('slow');">Aggiungi nota</a>
     </div>
-     <div class="small-10 columns">
-       <%= f.input_field :note, label: false, :class=> "", :style=>"display:none; height:150px;", :id=>"note_field" %>
+    <div id = "delay_group" style="display:none">
+     <div class="small-7 columns">
+       <%= f.input_field :note, label: false, :class=> "", :style=>"height:150px;", :id=>"note_field" %>
+    </div>
+    <div class="small-2 columns">
+       <%= f.input :delay,  label: "Ritardo", :class=> "", :style=>" height:150px;", :id=>"delay_field", input_html: {value: 0} %>
+    </div>
+    <div class="small-1 columns" id="delay_buttons" >
+       <a class="button large expand right" href="#" onClick="addDelay();">+</a><br>
+      <a class="button large expand right" href="#" onClick="subDelay();">-</a>
+    </div>
     </div>
   </div>
   </div>

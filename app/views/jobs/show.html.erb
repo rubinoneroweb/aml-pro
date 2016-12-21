@@ -23,12 +23,22 @@
   
   
 </div>
+<div class="row">
+  <div class="medium-12 columns">
+    <strong>Note:</strong>
+    <%= @job.note %>
+    <br>
+  </div>
+</div>
 
 <div class="row">
   <div class="medium-6 columns">
     <strong>Quantità:</strong> <%= @job.q_tot %>
     <br>
     <strong>Tempo:</strong> <%= @job.haul %>
+     <br>
+    <strong>Ritardo:</strong> <%= @job.delay %>'
+    
   </div>
   <div class="medium-6 columns">
     <strong>Velocità:</strong>         <span class="<%= @job.alert_class %>"><%= @job.speed.round(4) %></span>
