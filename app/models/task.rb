@@ -52,7 +52,7 @@ class Task < ActiveRecord::Base
         if self.total_time==0
             0
         else
-            self.total_done / (self.total_time / 60)
+            self.total_done / (self.total_time)
         end
     end
     

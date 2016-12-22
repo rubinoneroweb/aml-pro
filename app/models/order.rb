@@ -45,7 +45,19 @@ class Order < ActiveRecord::Base
         
     end
     
-   
+   def done_in_order(work)
+    
+         self.tasks.where(metalwork: work).map{|tsk| tsk.total_done}.sum
+
+    end
+    
+    def class_done(work)
+        if self.done_in_order(work) > self.total_pieces
+            "good"
+        else
+            "bad"
+        end
+    end
     
     
     

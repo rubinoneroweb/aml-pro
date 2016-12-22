@@ -1,51 +1,73 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
-  <div class="small-12 columns">
+  <div class="small-10 columns">
     <h1><%= @order.label_print %></h1>
     <h2><%= @order.article.code + " - " + @order.article.description %></h2>
   </div>
 </div>
+<div class="row">
+  <div class="small-8 columns">
+    <div class="row">
+      <div class="small-6 columns">
+        Ricezione:<br>
+        <strong><%= @order.date_ric.strftime("%d/%m/%Y") %></strong>
+      </div>
+      <div class="small-6 columns">
+        Consegna:<br>
+        <strong><%= @order.date_cons.strftime("%d/%m/%Y") %></strong>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-6 columns">
+        Note:<br>
+        <strong><%= @order.note %></strong>
+      </div>
+      <div class="small-6 columns">
+        Prezzo totale:<br>
+        <strong>€ <%= @order.total_pieces * @order.article.price if @order.article.price.present? %></strong>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div class="small-4 columns">
+    
+   
+  
+    
+      
+      <table>
+        <tr style="border: 1px solid #aaaaaa; background:honeydew;">
+          <td> Pezzi totali:</td>
+          <td> <strong><%= @order.total_pieces %></strong></td>
+        </tr>
+        <tr>
+          <th>Processo</th><th>Pezzi prodotti</th>
+        </tr>
+        
+        <% @order.article.metalworks.each do |work| %>
+        <tr>
+          <td>
+            <%= work.description %>
+          </td>
+          <td class="<%= @order.class_done(work) %>">
+            <%= @order.done_in_order(work) %>
+          </td>
+        </tr>
+        <% end %>
+        
+      </table>
+      
+      
+  </div> 
+     
+      
+    
+    
+    
+    
+</div>
 
-<div class="row">
-  <div class="small-6 columns">
-    Ricezione:<br>
-    <strong><%= @order.date_ric.strftime("%d/%m/%Y") %></strong>
-  </div>
-  <div class="small-6 columns">
-    Consegna:<br>
-    <strong><%= @order.date_cons.strftime("%d/%m/%Y") %></strong>
-  </div>
-</div>
-<div class="row">
-  <div class="small-6 columns">
-    Note:<br>
-    <strong><%= @order.note %></strong>
-  </div>
-  <div class="small-6 columns">
-    Prezzo totale:<br>
-    <strong>€ <%= @order.total_pieces * @order.article.price if @order.article.price.present? %></strong>
-  </div>
-  <div class="small-6 columns">
-    Pezzi totali:<br>
-    <strong><%= @order.total_pieces %></strong>
-  </div>
-</div>
-<div class="row">
-  <div class="small-12 columns">
-    <ul>
-      <% @order.article.metalworks.each do |work| %>
-      
-      <li>
-        Ci sono ancora <%= @order.pieces_remaining_for(work) %> pezzi da assegnare per il processo <%= Metalwork.find(work).description %>.
-      </li>
-      
-      <% end %>
-      
-    </ul>
-    
-    
-  </div>
-</div>
 
 
 <div class="row">
