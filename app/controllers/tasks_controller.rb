@@ -9,9 +9,9 @@ class TasksController < ApplicationController
     @operators = Customer.all
     if params[:operator].present?
         @operator = Operator.find  params[:operator]
-        @tasks = Task.where(operator_id: params[:operator])
+        @tasks = Task.where(operator_id: params[:operator], done: false)
     else
-      @tasks = Task.all
+      @tasks = Task.where(done: false)
       #@articles = Article.order('code ASC').page(params[:page])
     end
   end

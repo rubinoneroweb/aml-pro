@@ -94,7 +94,7 @@
             <td><%= task.order.label_print %></td>
             <td><%= task.quantity %></td>
             <td><%= (task.quantity / task.metalwork.speed).round(0) if task.metalwork.speed %>'</td>
-            <td><%= task.done ? "V" : "X" %></td>
+            <td><%= task.done ? (fa_icon "check-square-o 2x") : (fa_icon "square-o 2x") %></td>
             <td><%= link_to 'Dettagli', task, :class=>"button " %></td>
             <td><%= link_to 'Modifica', edit_task_path(task), :class=>"button warning" %></td>
             <td><%= link_to 'Elimina', task, method: :delete, data: { confirm: 'Sei sicuro?' }, :class=>"button alert"%></td>
