@@ -6,6 +6,9 @@ class Job < ActiveRecord::Base
     belongs_to :task
     delegate :article, :to => :order , allow_nil: true
     
+    validates :started_at, :presence => true
+    validates :completed_at, :presence => true
+    
     def start_time_h
         self.started_at.strftime("%d/%m/%Y %R")
     end

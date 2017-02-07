@@ -60,7 +60,7 @@ stopTime = function() {
   m = now.getMinutes();
   $('#stopLabel').text(h + " : " + pad(m));
    $('#buttonstop').attr('disabled', true);
-       $('#buttonsave').removeClass("disabled");
+       $('#buttonsave').removeClass("non-visible");
 };
 
 
