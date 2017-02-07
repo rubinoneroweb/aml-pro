@@ -83,7 +83,7 @@
           <tr style="border-top:1px solid gainsboro;">
             <td><%= task.operator.full_name %></td>
             <td><%= task.metalwork.description %></td>
-            <td><%= task.order.label_print %></td>
+            <td><%= task.order.label_print if task.order.present? %></td>
             <td><%= task.total_done %></td>
             <td><%= task.total_time.round(0) %>'</td>
              <td class="<%= task.alert_class %>"><%= task.total_speed.round(2) %></td>
