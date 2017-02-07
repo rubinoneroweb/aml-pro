@@ -81,6 +81,7 @@
     
       <tbody>
         <% @tasks.each do |task| %>
+        <% if task.order.present? %>
           <tr style="border-top:1px solid gainsboro;">
             <td><%= task.operator.full_name %></td>
             <td><%= task.metalwork.description %></td>
@@ -89,10 +90,11 @@
             <td><%= task.total_time.round(0) %>'</td>
              <td class="<%= task.alert_class %>"><%= task.total_speed.round(2) %></td>
             <td><%= task.total_delay %></td>
-            <td><%= link_to 'Elimina', task, method: :delete, data: { confirm: 'Sei sicuro?' }, :class=>"button alert"%></td>
+            <td><%=# link_to 'Elimina', task, method: :delete, data: { confirm: 'Sei sicuro?' }, :class=>"button alert"%></td>
 
             
              </tr>
+             <%end%>
         
             
          
