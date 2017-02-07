@@ -74,6 +74,7 @@
           <th>Durata</th>
           <th>Velocità</th>
           <th colspan="1">Ritardo</th>
+          <th colspan="1">-</th>
         </tr>
         
       </thead>
@@ -88,6 +89,8 @@
             <td><%= task.total_time.round(0) %>'</td>
              <td class="<%= task.alert_class %>"><%= task.total_speed.round(2) %></td>
             <td><%= task.total_delay %></td>
+            <td><%= link_to 'Elimina', task, method: :delete, data: { confirm: 'Sei sicuro?' }, :class=>"button alert"%></td>
+
             
              </tr>
         
