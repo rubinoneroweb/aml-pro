@@ -101,7 +101,7 @@
           </tr>
           <tr class="jobs">
               <th colspan="1"></td>
-              <th>Inizio</th>
+              <th></th>
               <th>Durata</th>
               <th>Quantità</th>
               <th>Velocità (Pz/min)</th>
@@ -109,6 +109,7 @@
               <th>Note</th>
               
             </tr>
+            <% if false%>
           <% task.jobs.each do |job| %>
             <tr class="jobs">
               <td colspan="1">&raquo;</td>
@@ -121,8 +122,9 @@
               <td><%= job.note %></td>
             </tr>
           <% end %>
-          <tr class ="jobs total" style="border-top: 1px solid black">
-            <td colspan = 2>TOTALI</td>
+           <% end %>
+          <tr class ="jobs total" style="border-top: 1px solid white">
+            <td colspan = 2>LAVORAZIONE</td>
             <td><%= task.total_time.round(0) %>'</td>
             <td><%= task.total_done %></td>
             <td class="<%= task.alert_class %>"><%= task.total_speed.round(2) %></td>

@@ -19,7 +19,7 @@
 </script>
 </div>
 
-
+<% if false %>
 <table>
   <thead>
     <tr>
@@ -58,6 +58,46 @@
     <% end %>
   </tbody>
 </table>
+<% end %>
+
+
+
+<div class="row">
+  <div class="small-12 columns">
+    <table>
+      <thead>
+        <tr>
+          <th>Operatore</th>
+          <th>Lavorazione</th>
+          <th>Commessa</th>
+          <th>Quantità</th>
+          <th>Durata</th>
+          <th>Velocità</th>
+          <th colspan="1">Ritardo</th>
+        </tr>
+        
+      </thead>
+    
+      <tbody>
+        <% @tasks.each do |task| %>
+          <tr style="border-top:1px solid gainsboro;">
+            <td><%= task.operator.full_name %></td>
+            <td><%= task.metalwork.description %></td>
+            <td><%= task.order.label_print %></td>
+            <td><%= task.total_done %></td>
+            <td><%= task.total_time.round(0) %>'</td>
+             <td class="<%= task.alert_class %>"><%= task.total_speed.round(2) %></td>
+            <td><%= task.total_delay %></td>
+            
+             </tr>
+        
+            
+         
+            
+        
+        <% end %>
+      </tbody>
+    </table>
 
 <br>
 

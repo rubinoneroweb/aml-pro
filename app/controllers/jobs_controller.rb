@@ -6,10 +6,13 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.all
     
+    @tasks = Task.all
+    
 
     if params[:article].present?
         @article = Article.find  params[:article]
         @jobs = Order.where(:article_id => @article.id).map{|o| o.tasks}.flatten.map{|t| t.jobs}.flatten
+        @tasks = @jobs = Order.where(:article_id => @article.id).map{|o| o.tasks}.flatten
     else
      @jobs = Job.all
       #@articles = Article.order('code ASC').page(params[:page])
