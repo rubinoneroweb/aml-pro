@@ -28,9 +28,11 @@ class Task < ActiveRecord::Base
     end
     
     def left_in_order
-    
+        if self.order
          self.order.total_pieces - self.order.tasks.where(metalwork: self.metalwork).map{|tsk| tsk.total_done}.sum
-
+        else
+            0
+        end
     end
     
     def done?
